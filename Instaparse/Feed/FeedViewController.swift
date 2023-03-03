@@ -1,14 +1,14 @@
 //
 //  FeedViewController.swift
-//  lab-insta-parse
 //
-//  Created by Charlie Hieger on 11/1/22.
+//  Created by Kim Connolly
 //
+
 
 import UIKit
 
 // TODO: Import Parse Swift
-
+import ParseSwift
 
 class FeedViewController: UIViewController {
 
@@ -38,7 +38,23 @@ class FeedViewController: UIViewController {
     private func queryPosts() {
         // TODO: Pt 1 - Query Posts
 // https://github.com/parse-community/Parse-Swift/blob/3d4bb13acd7496a49b259e541928ad493219d363/ParseSwift.playground/Pages/2%20-%20Finding%20Objects.xcplaygroundpage/Contents.swift#L66
+        // 1. Create a query to fetch Posts
+        // 2. Any properties that are Parse objects are stored by reference in Parse DB and as such need to explicitly use `include_:)` to be included in query results.
+        // 3. Sort the posts by descending order based on the created at date
+        let query = Post.query()
+            .include("user")
+            .order([.descending("createdAt")])
 
+        // Fetch objects (posts) defined in query (async)
+        query.find { [weak self] result in
+            switch result {
+            case .success(let posts):
+                // Update local posts property with fetched posts
+                self?.posts = posts
+            case .failure(let error):
+                self?.showAlert(description: error.localizedDescription)
+            }
+        }
 
     }
 
