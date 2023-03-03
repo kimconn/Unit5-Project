@@ -2,7 +2,7 @@
 
 Submitted by: Kim Connolly
 
-Instaparse is an app that ... [TODO] 
+Instaparse is an app which clones some of the main functionalities of the trending app called BeReal. In this app, users post a photo of what they’re currently doing upon receiving a random notification during the day. Only after posting a photo can the user see their friends’ photos.
 
 Time spent: 5 hours spent in total
 
@@ -27,7 +27,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<a href="https://imgur.com/IHtM4wh.gif">Video Walkthrough</a>
 
 ## Notes
 
